@@ -41,7 +41,7 @@ class Chef::Handler::Slack < Chef::Handler
   def report
     begin
       Timeout::timeout(@timeout) do
-        Chef::Log.debug("Sending report to Slack ##{config[:channel]}@#{team}.slack.com")
+        Chef::Log.debug("Sending report to Slack #{config[:channel]}@#{team}.slack.com")
         slack_message("Chef client run #{run_status_human_readable} on #{run_status.node.name}")
       end
     rescue Exception => e
